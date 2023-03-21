@@ -18,14 +18,23 @@ class ViewController: UIViewController {
     
     @IBAction func enviarJuego(_ sender: UIButton) {
         Juego = sender.currentTitle ?? ""
-        performSegue(withIdentifier: "juegoSegue", sender: self)
+        if Juego == "Combina2" {
+            performSegue(withIdentifier: "combinadosSegue", sender: self)
+        } else {
+            performSegue(withIdentifier: "juegoSegue", sender: self)
+        }
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let envioJuego = segue.destination as? ViewControllerDificultad
-        else{return}
-        envioJuego.Juego = Juego
+        if Juego == "Combina2" {
+            guard segue.destination is ViewControllerCombinados
+            else{return}
+        } else {
+            guard let envioJuego = segue.destination as? ViewControllerDificultad
+            else{return}
+            envioJuego.Juego = Juego
+        }
     }
 }
 

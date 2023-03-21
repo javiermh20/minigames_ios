@@ -27,8 +27,6 @@ class ViewControllerDificultad: UIViewController {
             performSegue(withIdentifier: "matematicaSegue", sender: self)
         } else if Juego == "Pregunta2"{
             performSegue(withIdentifier: "preguntadosSegue", sender: self)
-        } else {
-            performSegue(withIdentifier: "combinadosSegue", sender: self)
         }
     }
     
@@ -41,11 +39,7 @@ class ViewControllerDificultad: UIViewController {
             guard let dificultadEnvio = segue.destination as? ViewControllerPreguntados
             else{return}
             dificultadEnvio.Dificultad = dificultad
-        } else if Juego == "Combina2" {
-            guard let dificultadEnvio = segue.destination as? ViewControllerCombinados
-            else{return}
-            dificultadEnvio.Dificultad = dificultad
-        }
+        } 
     }
     
 }
