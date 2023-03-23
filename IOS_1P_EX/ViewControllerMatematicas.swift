@@ -224,4 +224,5 @@ class ViewControllerMatematicas: UIViewController {
         btnRes2.isHidden = true
         btnRes3.isHidden = true
     }
+    
 }
